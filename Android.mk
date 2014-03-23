@@ -16,8 +16,10 @@ LOCAL_SRC_FILES += $(call all-java-files-under, plugins/ActionBarSherlock/librar
 LOCAL_SRC_FILES += $(call all-java-files-under, plugins/Android-PullToRefresh/library/src)
 LOCAL_SRC_FILES += $(call all-java-files-under, plugins/ckChangeLog/library/src)
 LOCAL_SRC_FILES += $(call all-java-files-under, plugins/HoloColorPicker/src)
+LOCAL_SRC_FILES += $(call all-java-files-under, plugins/openpgp-api-library/src) \
+                   plugins/openpgp-api-library/src/org/openintents/openpgp/IOpenPgpService.aidl
 
-res_dir := res plugins/ActionBarSherlock/library/res plugins/Android-PullToRefresh/library/res plugins/ckChangeLog/library/res plugins/HoloColorPicker/res
+res_dir := res plugins/ActionBarSherlock/library/res plugins/Android-PullToRefresh/library/res plugins/ckChangeLog/library/res plugins/HoloColorPicker/res plugins/openpgp-api-library/res
 LOCAL_RESOURCE_DIR := $(addprefix $(LOCAL_PATH)/, $(res_dir))
 
 LOCAL_SDK_VERSION := current
@@ -25,6 +27,7 @@ LOCAL_SDK_VERSION := current
 LOCAL_PACKAGE_NAME := Email
 
 LOCAL_AAPT_FLAGS := --auto-add-overlay
+LOCAL_AAPT_FLAGS += --extra-packages org.openintents.openpgp
 LOCAL_AAPT_FLAGS += --extra-packages de.cketti.library.changelog
 LOCAL_AAPT_FLAGS += --extra-packages android.support.v4.app
 LOCAL_AAPT_FLAGS += --extra-packages com.actionbarsherlock
